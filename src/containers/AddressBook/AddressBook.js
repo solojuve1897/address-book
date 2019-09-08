@@ -33,6 +33,14 @@ class AddressBook extends Component {
                                                name.first.includes(text) ||
                                                name.last.includes(text)))
     }
+    onAddressBookItemClick = (employee) => {
+        this.props.history.push({
+            pathname: '/employee',
+            params: {
+                employee: JSON.stringify(employee)
+            }
+        })
+    }
     render() {
         const filteredEmployees = this.state.employees.length === 0 ? [] : this.state.employees.filter((employee) => {
             return this.searchInputCheck(employee.name)
@@ -55,7 +63,8 @@ class AddressBook extends Component {
                 </Grid>
                 {this.state.loading ?
                     <LinearProgress color="secondary" /> :
-                    <EmployeeList employees={sortedEmployees} />
+                    <EmployeeList employees={sortedEmployees} 
+                                  itemClicked={this.onAddressBookItemClick} />
                 }
             </Fragment>
         );

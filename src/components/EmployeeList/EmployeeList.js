@@ -7,7 +7,7 @@ const useStyles = makeStyles({
       padding: 20,
       margin: 5,
       '&:hover': {
-          background: 'aliceblue',
+        background: 'aliceblue',
       },
       cursor: 'pointer',
     },
@@ -21,7 +21,7 @@ const EmployeeList = (props) => {
     const classes = useStyles();
     const employeesOutput = props.employees.map((employee) => {
         return (
-            <Paper className={classes.root} key={employee.cell}>
+            <Paper className={classes.root} key={employee.id.value} onClick={() => props.itemClicked(employee)}>
                 <Grid container spacing={2} alignItems="center">
                     <Grid item>
                         <Avatar className={classes.bigAvatar} src={employee.picture.large} />

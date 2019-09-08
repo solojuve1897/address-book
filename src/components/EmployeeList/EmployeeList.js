@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 const EmployeeList = (props) => {
     const classes = useStyles();
-    const employeesOutput = props.employees.map((employee) => {
+    const employeesOutput = props.employees.length === 0 ? <p>No results. Try again!</p> : props.employees.map((employee) => {
         return (
             <Paper className={classes.root} key={employee.id.value} onClick={() => props.itemClicked(employee)}>
                 <Grid container spacing={2} alignItems="center">

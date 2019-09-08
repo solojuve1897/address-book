@@ -28,72 +28,71 @@ class AdressBookItem extends Component {
   }
   render () {
     const { classes } = this.props;
-    const employee = this.state.employee
-    console.log(employee)
+    const employee = this.state.employee;
     return (
-    <Fragment>
-      <IconButton edge="start" onClick={() => this.props.history.replace('/')}>
-          <Icon>arrow_back</Icon>
-      </IconButton>
-        {this.state.employee ?
-          <Paper className={classes.root}>
-              <Grid container>
-                <Grid item className="text-center" xs={12}>
-                  <Avatar className={classes.bigAvatar} src={employee.picture.large} />
-                  <Typography gutterBottom noWrap variant="h6" className="capitalize">
-                    {employee.name.title}. {employee.name.first} {employee.name.last}
-                  </Typography>
+      <Fragment>
+        <IconButton edge="start" onClick={() => this.props.history.replace('/')}>
+            <Icon>arrow_back</Icon>
+        </IconButton>
+          {this.state.employee ?
+            <Paper className={classes.root}>
+                <Grid container>
+                  <Grid item className="text-center" xs={12}>
+                    <Avatar className={classes.bigAvatar} src={employee.picture.large} />
+                    <Typography gutterBottom noWrap variant="h6" className="capitalize">
+                      {employee.name.title}. {employee.name.first} {employee.name.last}
+                    </Typography>
+                  </Grid>
+                  <Grid item zeroMinWidth xs={12}>
+                    <List dense>
+                    <ListItem disableGutters>
+                          <ListItemIcon>
+                              <Icon fontSize="small">email</Icon>
+                          </ListItemIcon>
+                          <ListItemText disableTypography>
+                              <Typography noWrap>
+                                  {employee.email}
+                              </Typography>
+                          </ListItemText>
+                      </ListItem>
+                      <ListItem disableGutters>
+                          <ListItemIcon>
+                              <Icon fontSize="small">smartphone</Icon>
+                          </ListItemIcon>
+                          <ListItemText disableTypography>
+                              <Typography noWrap>
+                                  {employee.cell}
+                              </Typography>
+                          </ListItemText>
+                      </ListItem>
+                      <ListItem disableGutters>
+                          <ListItemIcon>
+                              <Icon fontSize="small">phone</Icon>
+                          </ListItemIcon>
+                          <ListItemText disableTypography>
+                              <Typography noWrap>
+                                  {employee.phone}
+                              </Typography>
+                          </ListItemText>
+                      </ListItem>
+                      <ListItem disableGutters>
+                          <ListItemIcon>
+                              <Icon fontSize="small">home</Icon>
+                          </ListItemIcon>
+                          <ListItemText disableTypography>
+                              <Typography>
+                                <span className="capitalize">
+                                  {employee.location.city}, {employee.location.state}, {employee.location.postcode}
+                                </span>
+                              </Typography>
+                          </ListItemText>
+                      </ListItem>
+                    </List>
+                  </Grid>
                 </Grid>
-                <Grid item zeroMinWidth xs={12}>
-                  <List dense>
-                  <ListItem disableGutters>
-                        <ListItemIcon>
-                            <Icon fontSize="small">email</Icon>
-                        </ListItemIcon>
-                        <ListItemText disableTypography>
-                            <Typography noWrap>
-                                {employee.email}
-                            </Typography>
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem disableGutters>
-                        <ListItemIcon>
-                            <Icon fontSize="small">smartphone</Icon>
-                        </ListItemIcon>
-                        <ListItemText disableTypography>
-                            <Typography noWrap>
-                                {employee.cell}
-                            </Typography>
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem disableGutters>
-                        <ListItemIcon>
-                            <Icon fontSize="small">phone</Icon>
-                        </ListItemIcon>
-                        <ListItemText disableTypography>
-                            <Typography noWrap>
-                                {employee.phone}
-                            </Typography>
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem disableGutters>
-                        <ListItemIcon>
-                            <Icon fontSize="small">home</Icon>
-                        </ListItemIcon>
-                        <ListItemText disableTypography>
-                            <Typography>
-                              <span className="capitalize">
-                                {employee.location.city}, {employee.location.state}, {employee.location.postcode}
-                              </span>
-                            </Typography>
-                        </ListItemText>
-                    </ListItem>
-                  </List>
-                </Grid>
-              </Grid>
-          </Paper> : ''
-        }
-    </Fragment>
+            </Paper> : ''
+          }
+      </Fragment>
     );
   }
 }

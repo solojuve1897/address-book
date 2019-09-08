@@ -9,6 +9,9 @@ const useStyles = makeStyles({
     },
     info: {
       color: '#fff'
+    },
+    icon: {
+      cursor: 'pointer'
     }
 });
 
@@ -18,7 +21,7 @@ const NavBar = (props) => {
         <header>
             <AppBar position="fixed">
                 <Toolbar>
-                    <Icon onClick={() => props.history.replace('/')} fontSize="large">account_box</Icon>
+                    <Icon className={classes.icon} onClick={() => props.history.replace('/')} fontSize="large">account_box</Icon>
                     <Typography className={classes.root} variant="h6" color="inherit">Address book</Typography>
                     <div style={{marginLeft:'auto'}}>
                         <IconButton onClick={() => props.history.replace('/info')}>
